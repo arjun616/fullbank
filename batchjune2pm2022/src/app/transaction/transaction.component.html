@@ -1,0 +1,22 @@
+
+
+<table>
+    <thead> <tr> <th> <h3>TRANSACTION HISTORY</h3></th>
+        <th><h3><label for="">Balance</label>
+            <input type="text" ></h3></th></tr>
+         <tr>
+            <td><h1>Date</h1></td>
+            <td><h1>type</h1></td>
+            <td><h1>amount</h1></td>
+            <th><h1>Balance</h1></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of transaction">
+            <th><h1>unknown</h1></th>
+            <th><h2>{{t.type}}</h2></th>
+            <th><h2>{{t.amount}}</h2></th>
+            <th><h2>unknown</h2></th>
+        </tr>
+    </tbody>
+ </table>

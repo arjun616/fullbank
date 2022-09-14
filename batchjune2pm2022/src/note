@@ -1,0 +1,72 @@
+
+
+
+
+                        Angular - front end technology
+
+                                basic commands
+
+            1. create a project - ng new project-name
+
+            2. to run Angular project - ng serve
+
+            3. to generate component - ng g c component-name
+
+            4. to create Service - ng g s service-name
+
+
+
+                                basic concepts
+
+            1. Module - To Import libraries , Root module- AppModule
+
+            2. Component - to generate ts,html,css, Root Component - AppComponent
+
+            3. Data Binding - sharing data within a component
+
+                3.1 One way Binding - only single directional sharing
+
+                    3.1.1 Component (ts file) to View (html file)
+
+                        3.1.1.1 String Interpolation - {{variable-name}}
+
+                        3.1.1.2 Property Binding - [tag-attribute] = "class-property"
+
+                    3.1.2 View to Component
+
+                        3.1.2.1 Event Binding - (event-name)="function- call"
+
+                        3.1.2.2 Event Binding using $event - (event-name)="function- call($event)"
+
+                        3.1.2.3 Template Referencing variable: syntax: #variable-name
+
+                3.2 Two Way Binding - same time data shairing in both direction
+
+                    3.2.1 using ngModel - Import FormsModule - Import in AppModule
+
+                        ngModel - syntax: [(ngModel)]="variable-name", set name attribute if it used 
+                        inside form tag
+
+            4. Component Path set up, router-outlet selector
+
+            5. Depending Injection - inside constructor of a class
+
+            6. Angular Service
+
+            7. ngSubmit
+
+            8. Angular Form 
+
+                8.1 Template Driven Form
+
+                8.2 Model Driven Form - ReactiveForms - Import ReactiveFormsModule
+                    (form group, form array , form control)
+
+            9. Angular Directives - DOM Manipulation
+
+                9.1 Component Directives
+
+                9.2 Structural Directive - prefix *
+
+                    9.2.1 *ngIf
+

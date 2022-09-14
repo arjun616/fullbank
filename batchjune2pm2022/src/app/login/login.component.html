@@ -1,0 +1,45 @@
+
+<h1 class="text-primary">{{header}} </h1>
+
+<div class="row">
+
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 " style="margin-top: 200px;">
+        <div class="border container">
+            <h2 class="text-center text-primary">Login Form</h2>
+            <form [formGroup]="loginForm" action="" class="  p-5" (ngSubmit)="login()">
+    
+                <div class="m-3">
+                    <!-- acno (change)="acnoChange($event)"-->
+                    <!-- #acno - template reference -->
+                    <!-- <input [(ngModel)]="acno" name="acno" class="form-control" type="text" [placeholder]="accPlaceholder"> -->
+                    <input formControlName="acno" name="acno" class="form-control" type="text" [placeholder]="accPlaceholder">
+                
+                </div>
+                <div *ngIf="this.loginForm.get('acno')?.touched&&this.loginForm.get('acno')?.errors"
+                class="m-3" style="color:red;">
+                invalid account number
+            </div>
+                <div class="m-3">
+                    <!-- password -->
+                    <!-- <input [(ngModel)]="pswd" name="pswd" class="form-control" type="password" placeholder="password" > -->
+                    <input formControlName="pswd" name="pswd" class="form-control" type="password" placeholder="password" >
+                </div>
+                <div *ngIf="this.loginForm.get('pswd')?.touched&&this.loginForm.get('pswd')?.errors"
+                    class="m-3" style="color:red;">
+                    invalid password
+                </div>
+                <div class="m-3">
+                    <input  class="btn btn-primary" type="submit" value="Log In" name="" id="loginBtn">
+                </div>
+                
+                
+            </form>
+            <div>
+                <label for=""> Not a user? Click here to<a routerLink="register"> register</a>  </label>
+            </div>
+        </div>   
+       
+    </div>
+    <div class="col-lg-4"></div>
+</div>

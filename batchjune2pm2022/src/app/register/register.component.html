@@ -1,0 +1,54 @@
+
+<div class="row">
+
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 " style="margin-top: 200px;">
+        <div class="border container">
+            <h2 class="text-center text-primary">Register Form</h2>
+            <form [formGroup]="registerForm" action="" class="  p-5" (ngSubmit)="register()">
+                <!-- username -->
+                <div class="m-3">
+                   
+                    <input formControlName="uname" name="uname" class="form-control" type="text" placeholder="Username">
+                
+                </div>
+
+                <div *ngIf="this.registerForm.get('uname')?.touched&&this.registerForm.get('uname')?.errors" 
+                class="m-3" style="color: red;">
+                    Invalid Username
+                </div>
+
+                <!-- acno -->
+                <div class="m-3">
+                  
+                    <input formControlName="acno" name="acno" class="form-control" type="text" placeholder="Account Number">
+                
+                </div>
+
+                <div *ngIf="this.registerForm.get('acno')?.touched&&this.registerForm.get('acno')?.errors" 
+                class="m-3" style="color: red;">
+                    Invalid Account Number
+                </div>
+
+                <div class="m-3">
+                    <!-- password -->
+                    <input formControlName="pswd" name="pswd" class="form-control" type="password" placeholder="password" >
+                </div>
+
+                <div *ngIf="this.registerForm.get('pswd')?.touched&&this.registerForm.get('pswd')?.errors" 
+                class="m-3" style="color: red;">
+                    Invalid Password
+                </div>
+                <!-- register button -->
+                <div class="m-3">
+                    <input  class="btn btn-primary" type="submit" value="Register" name="" id="loginBtn">
+                </div>
+            </form>
+            <div>
+                <label for=""> Already user? Click here to<a routerLink=""> Log In</a>  </label>
+            </div>
+        </div>   
+       
+    </div>
+    <div class="col-lg-4"></div>
+</div>
