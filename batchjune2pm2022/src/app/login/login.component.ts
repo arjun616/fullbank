@@ -45,14 +45,22 @@ export class LoginComponent implements OnInit {
     
     if(this.loginForm.valid){
     const result = this.dataService.login(acno,pswd)
+    .subscribe(
+      //status:200
+      (result:any) => {
+        localStorage.setItem('token',JSON.stringify(result.token))
+        localStorage.setItem('currentUser',JSON.stringify(result.currentUser))
+        localStorage.setItem('currentAcno',JSON.stringify(result.currentAcno))
 
-    
-
-    if(result){
-      alert("Log In successfull")
-      this.router.navigateByUrl('dashboard')
-    }}
-
+        alert(result.message)
+        this.router.navigateByUrl('dashboard')
+        },
+        //status 400
+        result=>{
+          alert(result.error.message)
+        }
+    )
+      }
     else{
       alert('invalid form')
     }

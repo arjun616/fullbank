@@ -46,7 +46,8 @@ export class DashboardComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,private dataService:DataService,private router:Router) { }
 
   ngOnInit(): void {
-    this.user = this.dataService.currentUser
+    // this.user = this.dataService.currentUser
+    this.user = JSON.parse(localStorage.getItem('currentUser') || '')
 
     if(!localStorage.getItem('currentAcno'))
     {
@@ -64,18 +65,31 @@ export class DashboardComponent implements OnInit {
     var pswd = this.depositForm.value.pswd
 
     var amount = this.depositForm.value.amount
-    
-    if(this.depositForm.valid){
-      const result = this.dataService.deposit(acno,pswd,amount)
-      if(result){
-        alert(`${amount} deposited sucessfully and new balance is ${result}`)
-      }
-   
-    }
 
+    if(this.depositForm){
+      this.dataService.deposit(acno,pswd,amount)
+      .subscribe((result:any) => {
+        alert(result.message)
+      },
+      result => {
+        alert (result.error.message)
+      })
+    }
     else{
       alert('invalid form')
     }
+    
+    // if(this.depositForm.valid){
+    //   const result = this.dataService.deposit(acno,pswd,amount)
+    //   if(result){
+    //     alert(`${amount} deposited sucessfully and new balance is ${result}`)
+    //   }
+   
+    // }
+
+    // else{
+    //   alert('invalid form')
+    // }
   
   }
 

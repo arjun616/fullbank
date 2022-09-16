@@ -22,33 +22,54 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // register(){
+
+  //   var acno =this.registerForm.value.acno
+  //   var uname = this.registerForm.value.uname
+  //   var pswd = this.registerForm.value.pswd
+
+    
+    
+   
+  //   if(this.registerForm.valid){
+  //     const result =  this.dataService.register(uname,acno,pswd)
+  //     if(result){
+  //       alert('Register Successfully')
+  //      this.router.navigateByUrl('')
+  //     }
+  //     else{
+  //       alert('User already exist!!! Please log in')
+  //     }
+
+  //   }
+  //   else{
+  //     alert('Invalid Form')
+  //   }
+  // }
   register(){
 
     var acno =this.registerForm.value.acno
     var uname = this.registerForm.value.uname
     var pswd = this.registerForm.value.pswd
 
-    
-    
-   
     if(this.registerForm.valid){
-
-      const result =  this.dataService.register(uname,acno,pswd)
-      if(result){
-        alert('Register Successfully')
-       this.router.navigateByUrl('')
+      //asyncronous
+    this.dataService.register(uname,acno,pswd)
+    .subscribe(
+      (result:any) => {
+        alert(result.message)
+        this.router.navigateByUrl('')
+      },
+      //status : 400
+      result => {
+        alert (result.error.message)
       }
-      else{
-        alert('User already exist!!! Please log in')
-      }
-
-    }
+    )
+      
+  }
+     
     else{
       alert('Invalid Form')
     }
-
-   
   }
-
-  
 }
